@@ -1,0 +1,87 @@
+// Setting color variables
+$primaryColor: #ffcd00;
+$secondaryColor: #000;
+$textColor: #333;
+$light: #fff;
+
+// Range of Margin and padding values
+$pm5: 5px;
+$pm10: 10px;
+$pm20: 20px;
+
+.p5 { padding: $pm5;}
+.p10 { padding: $pm10;}
+.p20 { padding: $pm20;}
+
+@mixin box-shadow($values){
+    -webkit-box-shadow: $values;
+    -moz-box-shadow: $values;
+    box-shadow: $values;
+}
+
+.inline-block {
+    display: inline-block !important;
+}
+
+a {
+    color: $primaryColor;
+    &:hover {
+        color: $secondaryColor;
+        text-decoration: none;
+    }
+}
+
+#header {
+    background: $primaryColor;
+    padding: 20px;
+    margin-bottom: 40px;
+
+    .form-control {
+        background: $secondaryColor;
+        border: none;
+        color: $light;
+        @include box-shadow(none)
+    }
+
+    .google_login{
+        background-color: rgb(220, 74, 56);
+        text-align: center;
+        cursor: pointer;
+    }
+    
+}
+
+#sources {
+    h2 {
+        text-align: center;
+        margin: 20px 0;
+    }
+
+}
+
+.source {
+    display: block;
+    min-height: 20px;
+    line-height: 1;
+    margin: 0 0 10px 0;
+
+    .icon {
+        @extend .inline-block;
+        font-size: 20px;
+        vertical-align: middle;
+    }
+
+    .source-link {
+        @extend .inline-block;
+    }
+
+    h3 {
+        @extend .inline-block;
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    a {
+        font-size: 16px;
+    }
+}
