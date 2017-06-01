@@ -3,7 +3,6 @@ import React from 'react';
 class Header extends React.Component {
   constructor() {
     super();
-    this.appName = 'Headlines';
   }
 
   render() {
@@ -12,10 +11,11 @@ class Header extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col-md-3">
-              {this.appName}
+              Headlines
             </div>
             <div className="col-md-6">
               <input
+                onChange={this.searchSource}
                 type="text"
                 className="form-control p20"
                 placeholder="Search News Source"

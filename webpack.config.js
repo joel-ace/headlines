@@ -1,6 +1,4 @@
 const webpack = require('webpack');
-
-const nodeEnv = process.env.NODE_ENV || 'production';
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const publicFolder = `${__dirname}/public`;
