@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "webpack -d --watch",
+    "dev": "./node_modules/.bin/webpack-dev-server --content-base public --inline --hot",
     "prod": "webpack -p"
   },
   "dependencies": {
