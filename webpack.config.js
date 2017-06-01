@@ -32,6 +32,11 @@ module.exports = {
     path: publicFolder,
     filename: './js/bundle.min.js',
   },
+  devServer: {
+    contentBase: publicFolder,
+    port: 8080,
+    stats: 'errors-only',
+  },
   plugins: [
     // uglify js
     new webpack.optimize.UglifyJsPlugin({
