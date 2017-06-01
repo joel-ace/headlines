@@ -7,9 +7,7 @@ const appContainer = document.getElementById('root');
 
 ReactDOM.render(
   <HashRouter>
-    <Switch>
-      <Route exact path="/" component={Layout} />
-    </Switch>
+    <Route exact path="/" component={Layout} />
   </HashRouter >,
   appContainer,
 );
