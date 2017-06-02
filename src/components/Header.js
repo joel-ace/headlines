@@ -22,9 +22,10 @@ class Header extends React.Component {
               />
             </div>
             <div className="col-md-3">
-              <div className="google_login">
-                <span>Login with Google</span>
-              </div>
+              <span className="google_login pull-right">
+                <span><i className="fa fa-google-plus" /></span>
+                <span> Login with Google</span>
+              </span>
             </div>
           </div>
         </div>

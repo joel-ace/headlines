@@ -61,19 +61,47 @@ a {
         background-color: rgb(220, 74, 56);
         text-align: center;
         cursor: pointer;
+        color: #fff;
+        font-size: 16px;
+        padding: 5px;
     }
     
 }
 
+.h2-heading {
+    text-align: center;
+    padding: 10px 0;
+    margin: 0 0 50px 0;
+    border-bottom: 1px dotted $primaryColor;
+    color: $secondaryColor;
+}
+
+.urlLink {
+    width: auto;
+    vertical-align: top;
+}
+
+.layoutDefs {
+    h3 {
+        margin: 0px;
+        padding: 0px;
+        border-bottom: 1px dotted $primaryColor;
+        margin: 0 0 5px 0;
+    }
+    
+    a {
+        color: $primaryColor * -5;
+        vertical-align: middle;
+        &:hover {
+            color: $primaryColor;
+        }
+    }
+}
+
 #sources {
     h2 {
-        text-align: center;
-        padding: 10px 0;
-        margin: 0 0 50px 0;
-        border-bottom: 1px dotted $primaryColor;
-        color: $secondaryColor;
+        @extend .h2-heading;
     }
-
 }
 
 .source {
@@ -89,25 +117,87 @@ a {
         float: left;
     }
 
-    .source-link {
+    .link {
+        @extend .urlLink;
         padding-left: 30px;
-        width: auto;
-        vertical-align: top;
     }
 
-    h3 {
-        margin: 0px;
-        padding: 0px;
-        border-bottom: 1px dotted $primaryColor;
-        margin: 0 0 5px 0;
-    }
-    
-    a {
+    @extend .layoutDefs;
+
+    a{
         font-size: 16px;
-        color: $primaryColor * -5;
+    }
+
+}
+
+#articles {
+    .article {
+        margin: 0 0 10px 0;
+        padding: 0 0 10px 0;
+        border-bottom: 1px dotted $primaryColor;
+    }
+    h2 {
+        @extend .h2-heading;
+    }
+    .link{
+        @extend .urlLink;
+        padding-left: 120px;
+
+        p a {
+            padding: 5px;
+            margin: 0 0 0 10px;
+            background: $primaryColor;
+            color: $secondaryColor;
+            font-size: 14px;
+            &:hover{
+                color: $primaryColor;
+                background: $secondaryColor;
+            }
+        }
+    }
+
+    .articleImage {
+        @extend .inline-block;
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
         vertical-align: middle;
-        &:hover {
-            color: $primaryColor;
+        float: left;
+        margin: 0 10px 0 0;
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    @extend .layoutDefs;
+
+    a{
+        font-size: 20px;
+    }
+}
+
+.side-bar {
+    padding: 0 15px 15px 15px;
+
+    h2 {
+        font-size: 20px ;
+        padding: 10px !important;
+        margin: 0px !important;
+        background: $primaryColor;
+        color: $secondaryColor;
+    }
+    .nav {
+        border: 1px solid $primaryColor;
+
+        li > a {
+            padding: 5px 15px;
+            font-size: 15px !important;
+            &:hover {
+                background: none;
+                color: $primaryColor;
+            }
         }
     }
 }
+
