@@ -1,8 +1,8 @@
 import dispatcher from '../dispatcher';
-import * as newsAPI from '../newsAPI';
+import * as utils from '../utils';
 
 export function fetchSources() {
-  newsAPI.getSources().then((res) => {
+  utils.getSources().then((res) => {
     dispatcher.dispatch({
       type: 'GET_SOURCES',
       sources: res.sources,
@@ -12,7 +12,7 @@ export function fetchSources() {
 
 
 export function fetchArticles(source, sortBy) {
-  newsAPI.getArticle(source, sortBy).then((res) => {
+  utils.getArticle(source, sortBy).then((res) => {
     dispatcher.dispatch({
       type: 'GET_ARTICLES',
       sources: res.sources,
