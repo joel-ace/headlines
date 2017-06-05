@@ -1,20 +1,35 @@
 import { EventEmitter } from 'events';
-import * as newsAPI from '../newsAPI';
-
+import dispatcher from '../dispatcher';
 
 class ArticleStore extends EventEmitter {
   constructor() {
     super();
-    this.sources = newsAPI.getArticles();
+    this.articles = [];
   }
 
-  getAll() {
-    return this.sources;
+  getArticles() {
+    return this.articles;
+  }
+
+  handleActions(action) {
+    console.log(action);
+    switch (action.type) {
+      case 'GET_ARTICLES': {
+        this.articles = action.articles;
+        this.emit('change');
+        break;
+      }
+      default: {
+        this.articles = action.articles;
+        this.emit('change');
+        break;
+      }
+    }
   }
 
 }
 
-const sourceStore = new SourceStore();
-
-
-export default ArticleStore;
+const articleStore = new ArticleStore();
+dispatcher.register(articleStore.handleActions.bind(articleStore));
+window.dispatcher = dispatcher;
+export default articleStore;

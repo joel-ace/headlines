@@ -1,28 +1,17 @@
 import React from 'react';
+import * as SourceActions from '../actions/siteActions';
 import SingleArticle from './SingleArticle';
 import Sidebar from './Sidebar';
-import * as newsAPI from '../newsAPI';
 
 class Articles extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      articles: {},
+      articles: [],
     };
   }
 
-  componentWillMount() {
-    newsAPI.getSources().then((res) => {
-      this.setState({
-        articles: res,
-      });
-    });
-  }
-
   render() {
-    const { source } = this.props.match.params;
-    const title = 'This is the title';
-
     return (
       <section id="articles">
         <div className="container">

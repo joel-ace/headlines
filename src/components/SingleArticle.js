@@ -17,11 +17,11 @@ class SingleArticle extends React.Component {
             />
           </span>
           <div className="link">
-            <h3><a href="/service/accounting-services">{this.props.title}</a></h3>
+            <h3><a href="/service/accounting-services">{src.title}</a></h3>
             <p>
-              {this.props.description}
+              {src.description}
               <span>
-                <a href="/articles/{this.props.id}">Read More</a>
+                <a href="/articles/{src.id}">Read More</a>
               </span>
             </p>
           </div>

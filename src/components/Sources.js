@@ -1,5 +1,6 @@
 import React from 'react';
 import SingleSource from './SingleSource';
+import * as SourceActions from '../actions/siteActions';
 import SourceStore from '../stores/SourceStore';
 
 class Sources extends React.Component {
@@ -10,19 +11,24 @@ class Sources extends React.Component {
     };
   }
 
-  componentWillMount() {
-    SourceStore.getAll().then(
-      res => this.setState({
-        sources: res.sources,
-      }),
-    );
+  componentDidMount() {
+    SourceActions.fetchSources();
+    SourceStore.on('change', () => {
+      this.setState({
+        sources: this.fetchSources(),
+      });
+    });
+  }
+
+  fetchSources() {
+    this.setState({
+      sources: SourceStore.getAll(),
+    });
   }
 
   render() {
     const newsSources = this.state;
-    const sourceComponents = newsSources.sources.map((src) => {
-      return <SingleSource key={src.id} {...src} />;
-    });
+    const sourceComponents = newsSources.sources.map(src => <SingleSource key={src.id} {...src} />);
     return (
       <section id="sources">
         <div className="container">
