@@ -1,0 +1,203 @@
+// Setting color variables
+$primaryColor: #ffcd00;
+$secondaryColor: #000;
+$textColor: #333;
+$light: #fff;
+
+// Range of Margin and padding values
+$pm5: 5px;
+$pm10: 10px;
+$pm20: 20px;
+
+.p5 { padding: $pm5;}
+.p10 { padding: $pm10;}
+.p20 { padding: $pm20;}
+
+@mixin box-shadow($values){
+    -webkit-box-shadow: $values;
+    -moz-box-shadow: $values;
+    box-shadow: $values;
+}
+
+.inline-block {
+    display: inline-block !important;
+}
+
+html,body {
+	margin:0;
+	padding:0;
+	font-family: 'Varela Round', sans-serif;
+	font-size: 0.875em;
+    line-height: 1.4;
+}
+
+h1,h2,h3,h4,h5,h6 { 
+    margin: 0 0 5px 0;
+	font-family: 'Poppins', sans-serif;
+    font-weight: normal;
+}
+
+a {
+    color: $primaryColor;
+    &:hover {
+        color: $secondaryColor;
+        text-decoration: none;
+    }
+}
+
+#header {
+    background: $primaryColor;
+    padding: 20px;
+    margin-bottom: 20px;
+
+    .form-control {
+        background: $secondaryColor;
+        border: none;
+        color: $light;
+        @include box-shadow(none)
+    }
+
+    .google_login{
+        background-color: rgb(220, 74, 56);
+        text-align: center;
+        cursor: pointer;
+        color: #fff;
+        font-size: 16px;
+        padding: 5px;
+    }
+    
+}
+
+.h2-heading {
+    text-align: center;
+    padding: 10px 0;
+    margin: 0 0 50px 0;
+    border-bottom: 1px dotted $primaryColor;
+    color: $secondaryColor;
+}
+
+.urlLink {
+    width: auto;
+    vertical-align: top;
+}
+
+.layoutDefs {
+    h3 {
+        margin: 0px;
+        padding: 0px;
+        border-bottom: 1px dotted $primaryColor;
+        margin: 0 0 5px 0;
+    }
+    
+    a {
+        color: $primaryColor * -5;
+        vertical-align: middle;
+        &:hover {
+            color: $primaryColor;
+        }
+    }
+}
+
+#sources {
+    h2 {
+        @extend .h2-heading;
+    }
+}
+
+.source {
+    display: block;
+    min-height: 20px;
+    margin: 0 0 10px 0;
+
+    .icon {
+        @extend .inline-block;
+        width: 25px;
+        font-size: 20px;
+        vertical-align: middle;
+        float: left;
+    }
+
+    .link {
+        @extend .urlLink;
+        padding-left: 30px;
+    }
+
+    @extend .layoutDefs;
+
+    a{
+        font-size: 16px;
+    }
+
+}
+
+#articles {
+    .article {
+        margin: 0 0 10px 0;
+        padding: 0 0 10px 0;
+        border-bottom: 1px dotted $primaryColor;
+    }
+    h2 {
+        @extend .h2-heading;
+    }
+    .link{
+        @extend .urlLink;
+        padding-left: 120px;
+
+        p a {
+            padding: 5px;
+            margin: 0 0 0 10px;
+            background: $primaryColor;
+            color: $secondaryColor;
+            font-size: 14px;
+            &:hover{
+                color: $primaryColor;
+                background: $secondaryColor;
+            }
+        }
+    }
+
+    .articleImage {
+        @extend .inline-block;
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+        vertical-align: middle;
+        float: left;
+        margin: 0 10px 0 0;
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    @extend .layoutDefs;
+
+    a{
+        font-size: 20px;
+    }
+}
+
+.side-bar {
+    padding: 0 15px 15px 15px;
+
+    h2 {
+        font-size: 20px ;
+        padding: 10px !important;
+        margin: 0px !important;
+        background: $primaryColor;
+        color: $secondaryColor;
+    }
+    .nav {
+        border: 1px solid $primaryColor;
+
+        li > a {
+            padding: 5px 15px;
+            font-size: 15px !important;
+            &:hover {
+                background: none;
+                color: $primaryColor;
+            }
+        }
+    }
+}
+
