@@ -10,7 +10,7 @@ class Sidebar extends React.Component {
     return (
       <div className="side-bar">
         <h2>Sources</h2>
-        <SidebaNav {...src} />
+        <SidebaNav />
       </div>
     );
   }

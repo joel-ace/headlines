@@ -1,4 +1,4 @@
-import dispatcher from '../dispatcher';
+import dispatcher from '../dispatcher/dispatcher';
 import * as utils from '../utils';
 
 export function fetchSources() {
@@ -13,14 +13,10 @@ export function fetchSources() {
 
 export function fetchArticles(source, sortBy) {
   utils.getArticle(source, sortBy).then((res) => {
+    console.log(res);
     dispatcher.dispatch({
       type: 'GET_ARTICLES',
-      sources: res.sources,
-    }).catch((error) => {
-      dispatcher.dispatch({
-        type: 'GET_ARTICLES',
-        error,
-      });
+      articles: res.articles,
     });
   });
 }

@@ -13,6 +13,7 @@ const Routes = () => (
       <div>
         <Route exact path="/" component={Sources} />
         <Route path="/articles/:source" component={Articles} />
+        {/*<Route path="*" component={NotFound} />*/}
       </div>
     </HashRouter >,
 </div>

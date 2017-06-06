@@ -1,5 +1,5 @@
 import { EventEmitter } from 'events';
-import dispatcher from '../dispatcher';
+import dispatcher from '../dispatcher/dispatcher';
 
 class ArticleStore extends EventEmitter {
   constructor() {
@@ -30,6 +30,8 @@ class ArticleStore extends EventEmitter {
 }
 
 const articleStore = new ArticleStore();
-dispatcher.register(articleStore.handleActions.bind(articleStore));
+dispatcher.register(
+  articleStore.handleActions.bind(articleStore),
+);
 window.dispatcher = dispatcher;
 export default articleStore;

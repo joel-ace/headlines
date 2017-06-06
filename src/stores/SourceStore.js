@@ -1,5 +1,5 @@
 import { EventEmitter } from 'events';
-import dispatcher from '../dispatcher';
+import dispatcher from '../dispatcher/dispatcher';
 
 class SourceStore extends EventEmitter {
   constructor() {
@@ -24,6 +24,8 @@ class SourceStore extends EventEmitter {
 }
 
 const sourceStore = new SourceStore();
-dispatcher.register(sourceStore.handleActions.bind(sourceStore));
+dispatcher.register(
+  sourceStore.handleActions.bind(sourceStore),
+);
 window.dispatcher = dispatcher;
 export default sourceStore;
