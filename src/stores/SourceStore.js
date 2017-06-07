@@ -27,5 +27,4 @@ const sourceStore = new SourceStore();
 dispatcher.register(
   sourceStore.handleActions.bind(sourceStore),
 );
-window.dispatcher = dispatcher;
 export default sourceStore;

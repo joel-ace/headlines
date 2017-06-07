@@ -1,8 +1,8 @@
-// const dotenv = require('dotenv');
+const dotenv = require('dotenv');
 
-// dotenv.config();
+dotenv.config();
 
-const apiKey = '213327409d384371851777e7c7f78dfe';
+const apiKey = process.env.NEWS_API_KEY;
 const url = 'https://newsapi.org/v1/';
 
 console.log(getArticle('abc-news-au', 'top'));
@@ -13,7 +13,7 @@ function getSources() {
 }
 
 function getArticle(source, sortBy, key = apiKey) {
-  return fetch(`${url}articles?source=${source}}&sortBy=${sortBy}&apiKey=${key}`)
+  return fetch(`${url}articles?source=${source}&sortBy=${sortBy}&apiKey=${key}`)
           .then(res => res.json());
 }
 

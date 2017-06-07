@@ -8,27 +8,40 @@ class Sources extends React.Component {
     super(props);
     this.state = {
       sources: [],
+      loading: true,
     };
+    this.fetchSources = this.fetchSources.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     SourceActions.fetchSources();
-    SourceStore.on('change', () => {
-      this.setState({
-        sources: this.fetchSources(),
-      });
-    });
+  }
+
+  componentDidMount(){
+    SourceStore.on('change', this.fetchSources);
+  }
+
+  componentWillUnmount(){
+    SourceStore.removeListener('change', this.fetchSources);
   }
 
   fetchSources() {
     this.setState({
       sources: SourceStore.getAll(),
+      loading: false,
     });
   }
 
   render() {
     const newsSources = this.state;
-    const sourceComponents = newsSources.sources.map(src => <SingleSource key={src.id} {...src} />);
+    let sourceComponents;
+    if(newsSources.loading) {
+      sourceComponents = (
+        <h2> Loading .... </h2>
+      )      
+    } else {
+      sourceComponents = newsSources.sources.map(src => <SingleSource key={src.id} {...src} />);
+    }
     return (
       <section id="sources">
         <div className="container">

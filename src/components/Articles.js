@@ -9,7 +9,9 @@ class Articles extends React.Component {
     super(props);
     this.state = {
       articles: [],
+      loading: true,
     };
+    this.fetchArticles = this.fetchArticles.bind(this);
   }
 
   componentDidMount() {

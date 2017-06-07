@@ -30,6 +30,9 @@ module.exports = {
     path: publicFolder,
     filename: './js/bundle.min.js',
   },
+  node: {
+    fs: "empty"
+  },
   devServer: {
     contentBase: publicFolder,
     port: 8080,
