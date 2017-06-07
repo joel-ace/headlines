@@ -1,4 +1,6 @@
 [![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://github.com/joel-ace/headlines)
+[![Issue Count](https://codeclimate.com/github/codeclimate/codeclimate/badges/issue_count.svg)](https://github.com/joel-ace/headlines)
+[![Test Coverage](https://codeclimate.com/github/codeclimate/codeclimate/badges/coverage.svg)](https://github.com/joel-ace/headlines)
 
 Headlines - [http://#](http://#)
 ===========
