@@ -13,7 +13,6 @@ export function fetchSources() {
 
 export function fetchArticles(source, sortBy) {
   utils.getArticle(source, sortBy).then((res) => {
-    console.log(res);
     dispatcher.dispatch({
       type: 'GET_ARTICLES',
       articles: res.articles,

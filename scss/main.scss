@@ -98,6 +98,12 @@ a {
     }
 }
 
+.loading {
+    text-align: center;
+    font-size: 30px;
+    padding: 2em 0 0 0;
+}
+
 #sources {
     h2 {
         @extend .h2-heading;
@@ -166,14 +172,14 @@ a {
         margin: 0 10px 0 0;
 
         img {
-            max-width: 100%;
+            max-width: 130px;
         }
     }
 
     @extend .layoutDefs;
 
     a{
-        font-size: 20px;
+        font-size: 0.7em;
     }
 }
 
@@ -200,4 +206,3 @@ a {
         }
     }
 }
-

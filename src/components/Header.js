@@ -1,4 +1,6 @@
 import React from 'react';
+import Source from './SingleSource';
+
 
 class Header extends React.Component {
   constructor() {
@@ -15,7 +17,7 @@ class Header extends React.Component {
             </div>
             <div className="col-md-6">
               <input
-                onChange={this.searchSource}
+                onChange={Source.searchSources}
                 type="text"
                 className="form-control p20"
                 placeholder="Search News Source"

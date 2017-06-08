@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 const publicFolder = `${__dirname}/public`;
 
@@ -54,5 +55,9 @@ module.exports = {
       disable: false,
       allChunks: true,
     }),
+    new Dotenv({
+      path: '.env',
+      safe: false,
+    }),  
   ],
 };

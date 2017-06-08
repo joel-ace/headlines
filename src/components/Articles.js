@@ -14,27 +14,49 @@ class Articles extends React.Component {
     this.fetchArticles = this.fetchArticles.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     SiteActions.fetchArticles(this.props.match.params.source, 'top');
-    ArticleStore.on('change', () => {
-      this.setState({
-        articles: this.fetchArticles(),
-      });
-    });
+  }
+
+  componentDidMount() {
+    ArticleStore.on('change', this.fetchArticles);
+  }
+
+  componentWillUnmount() {
+    ArticleStore.removeListener('change', this.fetchArticles);
   }
 
   fetchArticles() {
     this.setState({
       articles: ArticleStore.getArticles(),
+      loading: false,
     });
+  }
+
+  sortArticles(sort) {
+    SiteActions.fetchArticles(this.props.match.params.source, sort.target.value);
   }
 
   render() {
     const newsArticles = this.state;
-    const articleComponents = newsArticles.articles.map(article => (
-      <SingleArticle key={article.id} {...article} />
-      ),
-    );
+    let articleComponents;
+
+    console.log(this.state);
+
+    // const sortOptions = news
+
+    if (newsArticles.loading) {
+      articleComponents = (
+        <div className="loading">
+          <i className="fa fa-spinner fa-pulse fa-5x fa-fw" />
+          <span className="sr-only">Loading...</span>
+        </div>
+      );
+    } else {
+      articleComponents = newsArticles.articles.map(
+        articles => <SingleArticle key={articles.title} {...articles} />,
+      );
+    }
     return (
       <section id="articles">
         <div className="container">
@@ -44,7 +66,9 @@ class Articles extends React.Component {
               <Sidebar />
             </div>
             <div className="col-md-9">
-              { articleComponents }
+              <div className="row same-height-fix">
+                { articleComponents }
+              </div>
             </div>
             <div className="clearfix" />
           </div>

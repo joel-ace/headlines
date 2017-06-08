@@ -1,11 +1,5 @@
-const dotenv = require('dotenv');
-
-dotenv.config();
-
 const apiKey = process.env.NEWS_API_KEY;
 const url = 'https://newsapi.org/v1/';
-
-console.log(getArticle('abc-news-au', 'top'));
 
 function getSources() {
   return fetch(`${url}sources`)
