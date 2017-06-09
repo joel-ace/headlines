@@ -14,12 +14,13 @@ class Articles extends React.Component {
     this.fetchArticles = this.fetchArticles.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {  
+    ArticleStore.on('change', this.fetchArticles);
     SiteActions.fetchArticles(this.props.match.params.source, 'top');
   }
 
-  componentDidMount() {
-    ArticleStore.on('change', this.fetchArticles);
+  componentWillReceiveProps(props){
+    SiteActions.fetchArticles(props.match.params.source, 'top');
   }
 
   componentWillUnmount() {
@@ -40,10 +41,6 @@ class Articles extends React.Component {
   render() {
     const newsArticles = this.state;
     let articleComponents;
-
-    console.log(this.state);
-
-    // const sortOptions = news
 
     if (newsArticles.loading) {
       articleComponents = (

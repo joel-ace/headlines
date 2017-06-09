@@ -17,5 +17,5 @@ export function fetchArticles(source, sortBy) {
       type: 'GET_ARTICLES',
       articles: res.articles,
     });
-  });
+  }).catch((err) => console.log(err));
 }

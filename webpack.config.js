@@ -32,7 +32,7 @@ module.exports = {
     filename: './js/bundle.min.js',
   },
   node: {
-    fs: "empty"
+    fs: 'empty'
   },
   devServer: {
     contentBase: publicFolder,
@@ -58,6 +58,6 @@ module.exports = {
     new Dotenv({
       path: '.env',
       safe: false,
-    }),  
+    }),
   ],
 };

@@ -12,17 +12,9 @@ class ArticleStore extends EventEmitter {
   }
 
   handleActions(action) {
-    switch (action.type) {
-      case 'GET_ARTICLES': {
-        this.articles = action.articles;
-        this.emit('change');
-        break;
-      }
-      default: {
-        this.articles = action.articles;
-        this.emit('change');
-        break;
-      }
+    if (action.type === 'GET_ARTICLES') {
+      this.articles = action.articles;
+      this.emit('change');
     }
   }
 

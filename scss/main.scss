@@ -193,8 +193,17 @@ a {
         background: $primaryColor;
         color: $secondaryColor;
     }
+    .notice {
+        background: $secondaryColor;
+        color: $light;
+        text-align: center;
+        font-size: 1.3em;
+        margin: 0px;
+    }
     .nav {
         border: 1px solid $primaryColor;
+        max-height: 100vh;
+        overflow: scroll;
 
         li > a {
             padding: 5px 15px;

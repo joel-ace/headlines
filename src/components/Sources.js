@@ -61,16 +61,20 @@ class Sources extends React.Component {
     }
     return (
       <section id="sources">
-        <div className="col-md-6">
-          <input
-            onChange={this.searchSources}
-            type="text"
-            className="form-control p20"
-            placeholder="Search News Source"
-          />
-        </div>
         <div className="container">
           <h2>Sources</h2>
+          <div className="row">
+            <div className="col-md-3" />
+            <div className="col-md-6">
+              <input
+                onChange={this.searchSources}
+                type="text"
+                className="form-control p20"
+                placeholder="Search News Source"
+              />
+            </div>
+            <div className="col-md-3" />
+          </div>
           <div className="row">
             { sourceComponents }
           </div>
