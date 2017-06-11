@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
     "dev": "webpack-dev-server --inline --hot",
     "prod": "webpack -p"
   },
@@ -12,13 +11,17 @@
     "babel-preset-stage-0": "^6.24.1",
     "debug": "^2.6.8",
     "dotenv": "^4.0.0",
+    "dotenv-webpack": "^1.5.0",
     "flux": "^3.1.2",
-    "history": "^4.6.1",
+    "jquery": "^3.2.1",
+    "jquery-fullheight": "^1.0.8",
+    "query-string": "^4.3.4",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-google-login": "^2.8.9",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
+    "react-share": "^1.14.1",
     "request": "^2.81.0",
     "serve-favicon": "~2.4.2"
   },

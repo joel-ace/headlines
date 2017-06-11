@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 const publicFolder = `${__dirname}/public`;
 
@@ -9,7 +10,7 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
@@ -29,6 +30,12 @@ module.exports = {
   output: {
     path: publicFolder,
     filename: './js/bundle.min.js',
+  },
+  node: {
+    fs: 'empty',
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
   },
   devServer: {
     contentBase: publicFolder,
@@ -50,6 +57,10 @@ module.exports = {
       filename: './css/main.css',
       disable: false,
       allChunks: true,
+    }),
+    new Dotenv({
+      path: '.env',
+      safe: false,
     }),
   ],
 };

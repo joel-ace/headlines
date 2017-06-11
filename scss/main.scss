@@ -45,16 +45,23 @@ a {
     }
 }
 
+.form-control {
+    background: $secondaryColor;
+    border: none;
+    color: $light;
+    @include box-shadow(none)
+}
+
 #header {
     background: $primaryColor;
     padding: 20px;
     margin-bottom: 20px;
 
-    .form-control {
-        background: $secondaryColor;
-        border: none;
-        color: $light;
-        @include box-shadow(none)
+    .logo {
+        font-size: 2em;
+        color: $secondaryColor;
+        font-weight: bold;
+        text-transform: uppercase;
     }
 
     .google_login{
@@ -71,7 +78,7 @@ a {
 .h2-heading {
     text-align: center;
     padding: 10px 0;
-    margin: 0 0 50px 0;
+    margin: 0 0 10px 0;
     border-bottom: 1px dotted $primaryColor;
     color: $secondaryColor;
 }
@@ -96,6 +103,12 @@ a {
             color: $primaryColor;
         }
     }
+}
+
+.loading {
+    text-align: center;
+    font-size: 15px;
+    padding: 2em 0 0 0;
 }
 
 #sources {
@@ -166,20 +179,35 @@ a {
         margin: 0 10px 0 0;
 
         img {
-            max-width: 100%;
+            max-width: 130px;
         }
     }
 
     @extend .layoutDefs;
 
     a{
-        font-size: 20px;
+        font-size: 0.7em;
     }
 }
 
-.side-bar {
-    padding: 0 15px 15px 15px;
+#protected {
+    text-align: center;
+    max-width: 500px;
+    margin: auto;
 
+    h2 {
+        font-size: 5em;
+    }
+    h4 {
+        line-height: 1.5;
+    }
+    .fa {
+        font-size: 20em;
+    }
+}
+
+
+.side-bar {
     h2 {
         font-size: 20px ;
         padding: 10px !important;
@@ -187,8 +215,17 @@ a {
         background: $primaryColor;
         color: $secondaryColor;
     }
+    .notice {
+        background: $secondaryColor;
+        color: $light;
+        text-align: center;
+        font-size: 1.3em;
+        margin: 0px;
+    }
     .nav {
         border: 1px solid $primaryColor;
+        max-height: 100vh;
+        overflow: scroll;
 
         li > a {
             padding: 5px 15px;
@@ -200,4 +237,3 @@ a {
         }
     }
 }
-

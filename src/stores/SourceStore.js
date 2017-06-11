@@ -12,12 +12,9 @@ class SourceStore extends EventEmitter {
   }
 
   handleActions(action) {
-    switch (action.type) {
-      default: {
-        this.sources = action.sources;
-        this.emit('change');
-        break;
-      }
+    if (action.type === 'GET_SOURCES') {
+      this.sources = action.sources;
+      this.emit('change');
     }
   }
 
@@ -27,5 +24,4 @@ const sourceStore = new SourceStore();
 dispatcher.register(
   sourceStore.handleActions.bind(sourceStore),
 );
-window.dispatcher = dispatcher;
 export default sourceStore;
