@@ -1,5 +1,5 @@
 import React from 'react';
-import SingleSource from './SingleSource';
+import SingleSource from './SingleSource.jsx';
 import * as SourceActions from '../actions/siteActions';
 import SourceStore from '../stores/SourceStore';
 
@@ -62,16 +62,18 @@ class Sources extends React.Component {
     return (
       <section id="sources">
         <div className="container">
-          <h2>Sources</h2>
           <div className="row">
             <div className="col-md-3" />
             <div className="col-md-6">
-              <input
-                onChange={this.searchSources}
-                type="text"
-                className="form-control p20"
-                placeholder="Search News Source"
-              />
+              <div className="form-group">
+                <input
+                  onChange={this.searchSources}
+                  type="text"
+                  className="form-control p20"
+                  placeholder="Search News Source"
+                />
+                <div className="p20" />
+              </div>
             </div>
             <div className="col-md-3" />
           </div>

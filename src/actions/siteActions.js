@@ -1,5 +1,5 @@
 import dispatcher from '../dispatcher/dispatcher';
-import * as utils from '../utils';
+import utils from '../utils';
 
 export function fetchSources() {
   utils.getSources().then((res) => {
@@ -17,5 +17,5 @@ export function fetchArticles(source, sortBy) {
       type: 'GET_ARTICLES',
       articles: res.articles,
     });
-  }).catch((err) => console.log(err));
+  });
 }

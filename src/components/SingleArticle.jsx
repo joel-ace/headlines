@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SingleArticle = articles => (
-  <div className="col-md-6">
+  <div className="col-md-6 nrc">
     <div className="article">
       <span className="articleImage">
         <img

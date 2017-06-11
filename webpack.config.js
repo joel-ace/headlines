@@ -10,7 +10,7 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
@@ -32,7 +32,10 @@ module.exports = {
     filename: './js/bundle.min.js',
   },
   node: {
-    fs: 'empty'
+    fs: 'empty',
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
   },
   devServer: {
     contentBase: publicFolder,
