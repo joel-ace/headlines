@@ -2,7 +2,7 @@ import React from 'react';
 
 const Protected = () => (
   <section id="protected">
-    <i className="fa fa-exclamation-triangle" />
+    <i className="fa fa-lock" />
     <h2>Oops!</h2>
     <h4>
     Seems like you are trying to access protected content. <br />

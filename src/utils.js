@@ -12,18 +12,26 @@ class Utils {
             .then(res => res.json());
   }
 
+  static responseSuccess(user) {
+    localStorage.setItem('headlinesToken', user.tokenId);
+    location.reload();
+  }
+
+  static logout() {
+    localStorage.removeItem('headlinesToken');
+    window.location.replace('/');
+  }
+
   static isLoggedIn() {
     if (localStorage.headlinesToken) {
       return fetch(`https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=${localStorage.headlinesToken}`)
                       .then(res => res)
                       .then(googleResponse => (
-                        (googleResponse.email_verified === 'true') ? true : false
+                        googleResponse.email_verified === 'true'
                       ));
-    } else {
-      return false;
     }
+    return false;
   }
-
 }
 
 export default Utils;

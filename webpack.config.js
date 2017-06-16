@@ -44,15 +44,15 @@ module.exports = {
   },
   plugins: [
     // uglify js
-    // new webpack.optimize.UglifyJsPlugin({
-    //   compress: {
-    //     warnings: false,
-    //   },
-    //   output: {
-    //     comments: false,
-    //   },
-    //   sourceMap: true,
-    // }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false,
+      },
+      output: {
+        comments: false,
+      },
+      sourceMap: true,
+    }),
     new ExtractTextPlugin({
       filename: './css/main.css',
       disable: false,
