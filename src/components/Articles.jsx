@@ -26,11 +26,11 @@ class Articles extends React.Component {
   componentWillReceiveProps(props) {
     this.SortArticleBy = this.getSortOptions()[0];
     SiteActions.fetchArticles(props.match.params.source, this.SortArticleBy);
-    this.state = {
+    this.setState({
       loading: true,
       sortBy: this.getSortOptions(this.props),
       articles: ArticleStore.getArticles(),
-    };
+    });
   }
 
   componentWillUnmount() {
@@ -46,7 +46,7 @@ class Articles extends React.Component {
 
   fetchArticles() {
     this.setState({
-      articles: ArticleStore.getArticles(),
+      articles: ArticleStore.getArticles() || [],
       loading: false,
       sortBy: this.getSortOptions(this.props),
     });

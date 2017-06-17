@@ -2,7 +2,6 @@ import React from 'react';
 import SidebaNav from './SidebarNav.jsx';
 import * as SourceActions from '../actions/siteActions';
 import SourceStore from '../stores/SourceStore';
-import SortBy from '../components/SortBy.jsx';
 
 class Sidebar extends React.Component {
   constructor(props) {
@@ -14,12 +13,9 @@ class Sidebar extends React.Component {
     this.fetchSources = this.fetchSources.bind(this);
   }
 
-  componentWillMount() {
-    SourceActions.fetchSources();
-  }
-
   componentDidMount() {
     SourceStore.on('change', this.fetchSources);
+    SourceActions.fetchSources();
   }
 
   componentWillUnmount() {
@@ -32,6 +28,7 @@ class Sidebar extends React.Component {
       loading: false,
     });
   }
+
   render() {
     const newsSources = this.state;
     let navComponents;

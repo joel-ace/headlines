@@ -115,6 +115,10 @@ a {
     h2 {
         @extend .h2-heading;
     }
+    div.nrc:nth-child(3n+4) {
+        clear: both;
+    }
+    
 }
 
 .source {
@@ -190,7 +194,7 @@ a {
     }
 }
 
-#protected {
+#protected, #error {
     text-align: center;
     max-width: 500px;
     margin: auto;

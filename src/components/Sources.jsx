@@ -14,12 +14,9 @@ class Sources extends React.Component {
     this.searchSources = this.searchSources.bind(this);
   }
 
-  componentWillMount() {
-    SourceActions.fetchSources();
-  }
-
   componentDidMount() {
     SourceStore.on('change', this.fetchSources);
+    SourceActions.fetchSources();
   }
 
   componentWillUnmount() {
