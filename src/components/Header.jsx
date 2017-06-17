@@ -1,7 +1,12 @@
 import React from 'react';
 import Login from './Login.jsx';
 
-export default () => (
+/**
+ * @function ErrorPage - Error page Component.
+ * @return {string} - HTML that displays when user is accessing
+ *                    a url that isn't available or contains no resource
+ */
+const ErrorPage = () => (
   <header id="header">
     <div className="container">
       <div className="row">
@@ -16,3 +21,5 @@ export default () => (
     </div>
   </header>
 );
+
+export default ErrorPage;

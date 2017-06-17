@@ -5,7 +5,14 @@ import Header from './Header.jsx';
 import Sources from './Sources.jsx';
 import Articles from './Articles.jsx';
 
-
+/**
+ * @function Layout - Layout Component.
+ * @return {void}
+ * Retrieves article sort value by calling getSortOptions()
+ * and assigns it to instance variable
+ * Makes a call to get list of Articles
+ * Listens for a change in the ArticleStore
+ */
 const Layout = () => (
   <div>
     <Header />

@@ -1,5 +1,9 @@
 import React from 'react';
 
+/**
+ * @function SingleArticle - SingleArticle Component that renders individual articles
+ * @return {string} - A string of HTML divs of articles
+ */
 const SingleArticle = articles => (
   <div className="col-md-12" >
     <div className="article">
