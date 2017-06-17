@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "start": "npm run prod && node server.js",
     "dev": "webpack-dev-server --inline --hot",
-    "prod": "webpack -p"
+    "prod": "webpack -p",
+    "test": "jest --coverage",
+    "coverage": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
   },
   "jest": {
     "transform": {
@@ -21,6 +24,7 @@
     "debug": "^2.6.8",
     "dotenv": "^4.0.0",
     "dotenv-webpack": "^1.5.0",
+    "express": "^4.15.3",
     "flux": "^3.1.2",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
