@@ -131,7 +131,7 @@ class Articles extends React.Component {
 
     return (
       <section id="articles">
-        <div className="container-fluid">
+        <div className="container">
           <div className="pull-right">
             <select name="sort-articles" onChange={this.sortArticles} id="sort-articles" className="form-control">
               { sortSelect }

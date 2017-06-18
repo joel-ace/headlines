@@ -51,12 +51,12 @@ Limitations of the project
 
 Contributing to the project
 ---------------------------
-Fork this repository to your account
-Clone your repository - git clone https://github.com/joel-ace/headlines.git
-Create a new branch for your feature - git checkout -b <new-feature>
-Commit your changes - git commit -m "did something"
-Push to the remote branch - git push origin <new-feature>
-Open a pull request
+- Fork this repository to your account
+- Clone your repository - git clone https://github.com/joel-ace/headlines.git
+- Create a new branch for your feature - git checkout -b <new-feature>
+- Commit your changes - git commit -m "did something"
+- Push to the remote branch - git push origin <new-feature>
+- Open a pull request
 
 Author
 --------------
