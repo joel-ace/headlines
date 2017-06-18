@@ -1,6 +1,11 @@
 import React from 'react';
 
-const Protected = () => (
+/**
+ * @function ErrorPage - Error page Component.
+ * @return {string} - HTML that displays when user is accessing
+ *                    a url that isn't available or contains no resource
+ */
+const ErrorPage = () => (
   <section id="error">
     <i className="fa fa-exclamation-triangle text-danger" />
     <h2>Oops!</h2>
@@ -12,4 +17,4 @@ const Protected = () => (
   </section>
 );
 
-export default Protected;
+export default ErrorPage;

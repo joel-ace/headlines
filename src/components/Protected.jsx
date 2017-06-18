@@ -1,5 +1,10 @@
 import React from 'react';
 
+/**
+ * @function Protected - Protected Component.
+ * @return {string} - HTML that displays when user is trying
+ *                    to access articles without authentication
+ */
 const Protected = () => (
   <section id="protected">
     <i className="fa fa-lock" />

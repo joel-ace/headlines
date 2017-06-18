@@ -1,6 +1,9 @@
 import React from 'react';
 
-// id, name, description, url, category, language, country, urlsToLogos, sortBysAvailable}
+/**
+ * @function SingleSource - SingleSource Component that renders individual sources
+ * @return {string} - A string of HTML divs of sources
+ */
 const SingleSource = src => (
   <div className="col-md-4 nrc">
     <div className="source">
