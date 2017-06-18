@@ -17,20 +17,24 @@ class Utils {
     location.reload();
   }
 
-  static logout() {
-    localStorage.removeItem('headlinesToken');
-    window.location.replace('/');
-  }
-
   static isLoggedIn() {
     if (localStorage.headlinesToken) {
       return fetch(`https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=${localStorage.headlinesToken}`)
                       .then(res => res)
-                      .then(googleResponse => (
-                        googleResponse.email_verified === 'true'
-                      ));
+                      .then((googleResponse) => {
+                        if (googleResponse.email_verified === 'true') {
+                          return true;
+                        }
+                        localStorage.removeItem('headlinesToken');
+                        return false;
+                      });
     }
     return false;
+  }
+
+  static logout() {
+    localStorage.removeItem('headlinesToken');
+    window.location.replace('/');
   }
 }
 
