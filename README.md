@@ -4,7 +4,7 @@
 
 Headlines
 =========
-Headlines is a news application that aggregates news from over 50 sources using NewsApi.org endpoints to bring news to you at your convinience. Headlines gives you the ease of getting news headlines from different sources in one place instead of having to visit these sites separately. [Click Here](http://joel-headlines.herokuapp.com) to view the
+Headlines is a news application that aggregates news from over 50 sources using NewsApi.org endpoints to bring news to you at your convinience. Headlines gives you the ease of getting news headlines from different sources in one place instead of having to visit these sites separately. [Click Here](http://joel-headlines.herokuapp.com) to view the hosted app.
 
 Features
 --------------
