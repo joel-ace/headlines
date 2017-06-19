@@ -4,6 +4,7 @@ node_js:
 cache:
   directories:
     - "node_modules"
-poafter_success:
+after_success:
   - npm install -g codeclimate-test-reporter
+  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
   - codeclimate-test-reporter < lcov.info
