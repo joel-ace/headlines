@@ -15,12 +15,18 @@ const SingleArticle = articles => (
         />
       </span>
       <div className="link">
-        <h3><a href={articles.url} rel="noopener noreferrer" target="_blank">{ articles.title }</a></h3>
+        <h3>
+          <a href={articles.url} rel="noopener noreferrer" target="_blank">
+            { articles.title }
+          </a>
+        </h3>
         <p>
           {articles.description}
         </p>
         <p className="pull-right">
-          <a href={articles.url} rel="noopener noreferrer" target="_blank">Read More</a>
+          <a href={articles.url} rel="noopener noreferrer" target="_blank">
+            Read More
+          </a>
         </p>
       </div>
       <div className="clearfix" />

@@ -9,7 +9,11 @@ const SingleSource = src => (
     <div className="source">
       <span className="icon"><i className="fa fa-newspaper-o" /></span>
       <div className="link">
-        <h3><a href={`#/articles/${src.id}/${src.sortBysAvailable}`}>{src.name}</a></h3>
+        <h3>
+          <a href={`#/articles/${src.id}/${src.sortBysAvailable}`}>
+            {src.name}
+          </a>
+        </h3>
         <p>{src.description}</p>
       </div>
       <div className="clearfix" />

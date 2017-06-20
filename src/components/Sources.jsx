@@ -78,7 +78,9 @@ class Sources extends React.Component {
         </div>
       );
     } else {
-      sourceComponents = newsSources.sources.map(src => <SingleSource key={src.id} {...src} />);
+      sourceComponents = newsSources.sources.map(
+        src => <SingleSource key={src.id} {...src} />
+      );
     }
     return (
       <section id="sources">
