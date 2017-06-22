@@ -32,11 +32,13 @@ class Articles extends React.Component {
   componentDidMount() {
     this.SortArticleBy = this.getSortOptions()[0];
     ArticleStore.on('change', this.fetchArticles);
-    SiteActions.fetchArticles(this.props.match.params.source, this.SortArticleBy);
+    SiteActions.fetchArticles(
+      this.props.match.params.source, this.SortArticleBy
+    );
   }
 
   /**
-   * @method componentWillReceiveProps - Runs after page has been rendered and props have changed
+   * @method componentWillReceiveProps - Runs after page render and props change
    * @return {void}
    * Retrieves article sort value by calling getSortOptions()
    * and assigns it to instance variable

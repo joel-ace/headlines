@@ -7,8 +7,8 @@ import * as SiteActions from '../../src/actions/siteActions';
 import props from '../../__mocks__/props';
 
 jest.mock('../../src/utils.js', () => ({
-  getSources: () => Promise.resolve({ sources: 'getPromise' }),
-  getArticle: () => Promise.resolve({ articles: 'getPromise' }),
+  getSources: () => Promise.resolve({ sources: [] }),
+  getArticle: () => Promise.resolve({ articles: [] }),
   isLoggedIn: () => true,
 }));
 

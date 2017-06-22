@@ -56,7 +56,6 @@ class Utils {
                         if (googleResponse.email_verified === 'true') {
                           return true;
                         }
-                        localStorage.removeItem('headlinesToken');
                         return false;
                       });
     }
