@@ -23,6 +23,20 @@ $pm20: 20px;
     display: inline-block !important;
 }
 
+html,body {
+	margin:0;
+	padding:0;
+	font-family: 'Varela Round', sans-serif;
+	font-size: 0.875em;
+    line-height: 1.4;
+}
+
+h1,h2,h3,h4,h5,h6 { 
+    margin: 0 0 5px 0;
+	font-family: 'Poppins', sans-serif;
+    font-weight: normal;
+}
+
 a {
     color: $primaryColor;
     &:hover {
@@ -31,57 +45,199 @@ a {
     }
 }
 
+.form-control {
+    background: $secondaryColor;
+    border: none;
+    color: $light;
+    @include box-shadow(none)
+}
+
 #header {
     background: $primaryColor;
     padding: 20px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 
-    .form-control {
-        background: $secondaryColor;
-        border: none;
-        color: $light;
-        @include box-shadow(none)
+    .logo {
+        font-size: 2em;
+        color: $secondaryColor;
+        font-weight: bold;
+        text-transform: uppercase;
     }
 
     .google_login{
         background-color: rgb(220, 74, 56);
         text-align: center;
         cursor: pointer;
+        color: #fff;
+        font-size: 16px;
+        padding: 5px;
     }
     
 }
 
+.h2-heading {
+    text-align: center;
+    padding: 10px 0;
+    margin: 0 0 10px 0;
+    border-bottom: 1px dotted $primaryColor;
+    color: $secondaryColor;
+}
+
+.urlLink {
+    width: auto;
+    vertical-align: top;
+}
+
+.layoutDefs {
+    h3 {
+        margin: 0px;
+        padding: 0px;
+        border-bottom: 1px dotted $primaryColor;
+        margin: 0 0 5px 0;
+    }
+    
+    a {
+        color: $primaryColor * -5;
+        vertical-align: middle;
+        &:hover {
+            color: $primaryColor;
+        }
+    }
+}
+
+.loading {
+    text-align: center;
+    font-size: 15px;
+    padding: 2em 0 0 0;
+}
+
 #sources {
     h2 {
-        text-align: center;
-        margin: 20px 0;
+        @extend .h2-heading;
     }
-
+    div.nrc:nth-child(3n+4) {
+        clear: both;
+    }
+    
 }
 
 .source {
     display: block;
     min-height: 20px;
-    line-height: 1;
     margin: 0 0 10px 0;
 
     .icon {
         @extend .inline-block;
+        width: 25px;
         font-size: 20px;
         vertical-align: middle;
+        float: left;
     }
 
-    .source-link {
-        @extend .inline-block;
+    .link {
+        @extend .urlLink;
+        padding-left: 30px;
     }
 
-    h3 {
-        @extend .inline-block;
-        margin: 0px;
-        padding: 0px;
-    }
-    
-    a {
+    @extend .layoutDefs;
+
+    a{
         font-size: 16px;
+    }
+
+}
+
+#articles {
+    .article {
+        margin: 0 0 10px 0;
+        padding: 0 0 10px 0;
+        border-bottom: 1px dotted $primaryColor;
+    }
+    h2 {
+        @extend .h2-heading;
+    }
+    .link{
+        @extend .urlLink;
+        padding-left: 120px;
+
+        p a {
+            padding: 5px;
+            margin: 0 0 0 10px;
+            background: $primaryColor;
+            color: $secondaryColor;
+            font-size: 14px;
+            &:hover{
+                color: $primaryColor;
+                background: $secondaryColor;
+            }
+        }
+    }
+
+    .articleImage {
+        @extend .inline-block;
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+        vertical-align: middle;
+        float: left;
+        margin: 0 10px 0 0;
+
+        img {
+            max-width: 130px;
+        }
+    }
+
+    @extend .layoutDefs;
+
+    a{
+        font-size: 0.7em;
+    }
+}
+
+#protected, #error {
+    text-align: center;
+    max-width: 500px;
+    margin: auto;
+
+    h2 {
+        font-size: 5em;
+    }
+    h4 {
+        line-height: 1.5;
+    }
+    .fa {
+        font-size: 20em;
+    }
+}
+
+
+.side-bar {
+    h2 {
+        font-size: 20px ;
+        padding: 10px !important;
+        margin: 0px !important;
+        background: $primaryColor;
+        color: $secondaryColor;
+    }
+    .notice {
+        background: $secondaryColor;
+        color: $light;
+        text-align: center;
+        font-size: 1.3em;
+        margin: 0px;
+    }
+    .nav {
+        border: 1px solid $primaryColor;
+        max-height: 100vh;
+        overflow: scroll;
+
+        li > a {
+            padding: 5px 15px;
+            font-size: 15px !important;
+            &:hover {
+                background: none;
+                color: $primaryColor;
+            }
+        }
     }
 }
