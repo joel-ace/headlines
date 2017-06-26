@@ -1,5 +1,6 @@
 import React from 'react';
 import SingleSource from './SingleSource.jsx';
+import SourceLoading from '../components/SourceLoading.jsx'
 import * as SourceActions from '../actions/siteActions';
 import SourceStore from '../stores/SourceStore';
 
@@ -54,8 +55,8 @@ class Sources extends React.Component {
    * @method searchSources - Filters available sources based on user input
    * @return {void}
    */
-  searchSources(q) {
-    const word = q.target.value;
+  searchSources(searchSring) {
+    const word = searchSring.target.value;
     const searchResults = SourceStore.getAll().filter(
       src => (
         src.name.toLowerCase().indexOf(word.toLowerCase()) !== -1
@@ -72,10 +73,7 @@ class Sources extends React.Component {
     let sourceComponents;
     if (newsSources.loading) {
       sourceComponents = (
-        <div className="loading">
-          <i className="fa fa-spinner fa-pulse fa-5x fa-fw" />
-          <span className="sr-only">Loading...</span>
-        </div>
+        <SourceLoading />
       );
     } else {
       sourceComponents = newsSources.sources.map(

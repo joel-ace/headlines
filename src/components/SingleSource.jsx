@@ -1,20 +1,21 @@
 import React from 'react';
 
 /**
- * @function SingleSource - SingleSource Component that renders individual sources
- * @return {string} - A string of HTML divs of sources
+ * SingleSource Component that renders individual sources
+ * @param {object} source a source object
+ * @returns {string} a string of HTML divs of sources
  */
-const SingleSource = src => (
+const SingleSource = source => (
   <div className="col-md-4 nrc">
     <div className="source">
       <span className="icon"><i className="fa fa-newspaper-o" /></span>
       <div className="link">
         <h3>
-          <a href={`#/articles/${src.id}/${src.sortBysAvailable}`}>
-            {src.name}
+          <a href={`#/articles/${source.id}/${source.sortBysAvailable}`}>
+            {source.name}
           </a>
         </h3>
-        <p>{src.description}</p>
+        <p>{source.description}</p>
       </div>
       <div className="clearfix" />
     </div>

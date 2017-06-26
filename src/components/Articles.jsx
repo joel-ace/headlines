@@ -3,6 +3,7 @@ import * as SiteActions from '../actions/siteActions';
 import ArticleStore from '../stores/ArticleStore';
 import SingleArticle from './SingleArticle.jsx';
 import Sidebar from './Sidebar.jsx';
+import ArticleLoading from './ArticleLoading.jsx';
 
 /**
  * @class Articles
@@ -113,10 +114,7 @@ class Articles extends React.Component {
     */
     if (newsArticles.loading) {
       articleComponents = (
-        <div className="loading">
-          <i className="fa fa-spinner fa-pulse fa-5x fa-fw" />
-          <span className="sr-only">Loading...</span>
-        </div>
+          <ArticleLoading />
       );
       sortSelect = [];
     } else {
@@ -135,7 +133,11 @@ class Articles extends React.Component {
       <section id="articles">
         <div className="container">
           <div className="pull-right">
-            <select name="sort-articles" onChange={this.sortArticles} id="sort-articles" className="form-control">
+            <select name="sort-articles"
+              onChange={this.sortArticles}
+              id="sort-articles"
+              className="form-control"
+            >
               { sortSelect }
             </select>
           </div>
