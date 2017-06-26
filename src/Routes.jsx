@@ -14,7 +14,10 @@ const Routes = () => (
     <HashRouter>
       <Switch>
         <Route exact path="/" component={Sources} />
-        <Route exact path="/articles/:source/:sort" component={Utils.isLoggedIn() ? Articles : Protected} />
+        <Route
+          exact path="/articles/:source/:sort"
+          component={Utils.isLoggedIn() ? Articles : Protected}
+        />
         <Route component={ErrorPage} />
       </Switch>
     </HashRouter >,

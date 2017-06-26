@@ -2,9 +2,8 @@ import React from 'react';
 import Login from './Login.jsx';
 
 /**
- * @function ErrorPage - Error page Component.
- * @return {string} - HTML that displays when user is accessing
- *                    a url that isn't available or contains no resource
+ * header component
+ * @returns {ReactElement} - the header
  */
 const ErrorPage = () => (
   <header id="header">

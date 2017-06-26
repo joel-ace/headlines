@@ -6,28 +6,32 @@ import dispatcher from '../dispatcher/dispatcher';
  * @extends {EventEmitter}
  */
 class ArticleStore extends EventEmitter {
+  /**
+   * Creates an instance of ArticleStore
+   * @memberof ArticleStore
+   */
   constructor() {
     super();
     this.articles = [];
   }
 
   /**
-  * @method getArticles
-  * @return {array} - returns an array of articles
-  */
+   * returns an array of articles
+   * @returns {array} - an array of articles
+   * @memberof ArticleStore
+   */
   getArticles() {
     return this.articles;
   }
 
-
   /**
-  * @method handleActions
-  * @param {obj} action
-  * @return {void}
-  * Listens to actions from the dispatcher
-  * runs actions relevant to Article Store
-  * Emits a change event
-  */
+   * Listens to actions from the dispatcher
+   * run actions relevant to Article Store
+   * Emits a change event
+   * @param {object} action - requested action
+   * @memberof ArticleStore
+   * @return {void}
+   */
   handleActions(action) {
     if (action.type === 'GET_ARTICLES') {
       this.articles = action.articles;
@@ -37,10 +41,10 @@ class ArticleStore extends EventEmitter {
 
 }
 
-// create new instance of ArticleStore
+/** create new instance of ArticleStore */
 const articleStore = new ArticleStore();
 
-// register the store to recieve actions from dispatcher
+/** register the store to recieve actions from dispatcher */
 dispatcher.register(
   articleStore.handleActions.bind(articleStore),
 );

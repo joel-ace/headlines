@@ -4,9 +4,9 @@ const url = 'https://newsapi.org/v1/';
 /**
  * @class Utils
  */
-
 class Utils {
   /**
+   * gets all available sources
    * @static
    * @memberof Utils
    * @return {Promise} - Returns a promise
@@ -18,6 +18,7 @@ class Utils {
   }
 
   /**
+   * gets articles for particular source
    * @static
    * @memberof Utils
    * @param {string} source - Takes in a source parameter
@@ -25,17 +26,17 @@ class Utils {
    * @param {string} [key] - optional key parameter
    * @return {Promise} - Returns a promise
    */
-  static getArticle(source, sortBy, key = apiKey) {
-    return fetch(`${url}articles?language=en&source=${source}&sortBy=${sortBy}&apiKey=${key}`)
+  static getArticle(source, sortBy) {
+    return fetch(`${url}articles?language=en&source=${source}&sortBy=${sortBy}&apiKey=${apiKey}`)
             .then(res => res.json());
   }
 
   /**
+   * adds the user token to localStorage and reloads the page
    * @static
    * @memberof Utils
    * @param {obj} user - Takes in a user object
    * @return {void}
-   * adds the user token to localStorage and reloads the page
    */
   static responseSuccess(user) {
     localStorage.setItem('headlinesToken', user.tokenId);
@@ -43,10 +44,10 @@ class Utils {
   }
 
   /**
+   * Validates the token with Google using a validation url
    * @static
    * @memberof Utils
-   * @return {Boolean}
-   * Validates the token with Google using a validation url
+   * @returns {Boolean} - true if verified, false if not
    */
   static isLoggedIn() {
     if (localStorage.headlinesToken) {
@@ -63,11 +64,11 @@ class Utils {
   }
 
   /**
+   * Deletes token from localStorage
+   * Redirects to sources page
    * @static
    * @memberof Utils
    * @return {void}
-   * Deletes token from localStorage
-   * Redirects to sources page
    */
   static logout() {
     localStorage.removeItem('headlinesToken');

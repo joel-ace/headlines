@@ -1,8 +1,9 @@
 import React from 'react';
 
 /**
- * @function SidebarNav - SidebarNav Component
- * @return {string} - A string of HTML list items of articles
+ * SidebarNav Component
+ * @param {object} src - source object
+ * @returns {string} - A string of HTML list items of articles
  */
 const SidebarNav = src => (
   <li>

@@ -6,27 +6,32 @@ import dispatcher from '../dispatcher/dispatcher';
  * @extends {EventEmitter}
  */
 class SourceStore extends EventEmitter {
+  /**
+   * Creates an instance of SourceStore.
+   * @memberof SourceStore
+   */
   constructor() {
     super();
     this.sources = [];
   }
 
   /**
-  * @method getAll
-  * @return {array} - returns an array of sources
-  */
+   * returns an array of sources
+   * @returns {array} - an array of sources
+   * @memberof SourceStore
+   */
   getAll() {
     return this.sources;
   }
 
   /**
-  * @method handleActions
-  * @param {obj} action
-  * @return {void}
-  * Listens to actions from the dispatcher
-  * runs actions relevant to Source Store
-  * Emits a change event
-  */
+   * Listens to actions from the dispatcher
+   * run actions relevant to Source Store
+   * Emits a change event
+   * @param {object} action - requested action
+   * @memberof SourceStore
+   * @return {void}
+   */
   handleActions(action) {
     if (action.type === 'GET_SOURCES') {
       this.sources = action.sources;
@@ -36,10 +41,10 @@ class SourceStore extends EventEmitter {
 
 }
 
-// create new instance of SourceStore
+/** create new instance of SourceStore */
 const sourceStore = new SourceStore();
 
-// register the store to recieve actions from dispatcher
+/** register the store to recieve actions from dispatcher */
 dispatcher.register(
   sourceStore.handleActions.bind(sourceStore),
 );

@@ -1,16 +1,21 @@
 import React from 'react';
 import SingleSource from './SingleSource.jsx';
-import SourceLoading from '../components/SourceLoading.jsx'
+import SourceLoading from '../components/SourceLoading.jsx';
 import * as SourceActions from '../actions/siteActions';
 import SourceStore from '../stores/SourceStore';
 
 /**
- * @class Sources - Sources component that renders the sources page
+ * Sources component
+ * @class Sources
  * @extends {React.Component}
  */
 class Sources extends React.Component {
-  constructor(props) {
-    super(props);
+  /**
+   * Creates an instance of Sources.
+   * @memberof Sources
+   */
+  constructor() {
+    super();
     this.state = {
       sources: [],
       loading: true,
@@ -20,10 +25,11 @@ class Sources extends React.Component {
   }
 
   /**
-   * @method componentDidMount - Runs after the page has been rendered
-   * @return {void}
+   * Runs after the page has been rendered
    * Makes a call to get list of Sources
    * Listens for a change in the SourceStore
+   * @return {void}
+   * @memberof Sources
    */
   componentDidMount() {
     SourceStore.on('change', this.fetchSources);
@@ -31,18 +37,19 @@ class Sources extends React.Component {
   }
 
   /**
-   * @method componentWillUnmount - Runs before component is removed from the DOM
-   * @return {void}
+   * Runs before component is removed from the DOM
    * Removes the change Listener from SourceStore
+   * @returns {void}
+   * @memberof Sources
    */
   componentWillUnmount() {
     SourceStore.removeListener('change', this.fetchSources);
   }
 
   /**
-   * @method fetchSources - Sets the state of sources to
-   * data retrieved from SourceStore
-   * @return {void}
+   * Sets state to data retrieved from SourceStore
+   * @returns {void}
+   * @memberof Sources
    */
   fetchSources() {
     this.setState({
@@ -52,8 +59,10 @@ class Sources extends React.Component {
   }
 
   /**
-   * @method searchSources - Filters available sources based on user input
-   * @return {void}
+   * Filters available sources based on user input
+   * @param {any} searchSring - query string
+   * @memberof Sources
+   * @returns {void}
    */
   searchSources(searchSring) {
     const word = searchSring.target.value;
@@ -68,6 +77,11 @@ class Sources extends React.Component {
     });
   }
 
+  /**
+   * renders the sources component
+   * @returns {ReactElement} - the sources component
+   * @memberof Sources
+   */
   render() {
     const newsSources = this.state;
     let sourceComponents;

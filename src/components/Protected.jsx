@@ -1,9 +1,8 @@
 import React from 'react';
 
 /**
- * @function Protected - Protected Component.
- * @return {string} - HTML that displays when user is trying
- *                    to access articles without authentication
+ * protected component
+ * @returns {ReactElement} - the protected content page
  */
 const Protected = () => (
   <section id="protected">

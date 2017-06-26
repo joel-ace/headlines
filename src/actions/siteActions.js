@@ -3,8 +3,8 @@ import utils from '../utils';
 
 /**
  * Gets the list of sources from Api
- * @function fetchSources - Dispatches it to the stores
- * @return {void}
+ * Dispatches it to the source store
+ * @returns {void}
  */
 export function fetchSources() {
   utils.getSources().then((res) => {
@@ -17,9 +17,9 @@ export function fetchSources() {
 
 /**
  * Gets the list of articles from from selected source
- * @function fetchSources - Dispatches it to the stores
+ * Dispatches it to the artice store
  * @param {string} source Source for article selection
- * @param {string} sortBy SortBy for article
+ * @param {string} sortBy Sort option for article
  * @return {void}
  */
 export function fetchArticles(source, sortBy) {

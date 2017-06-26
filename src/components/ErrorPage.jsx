@@ -1,9 +1,8 @@
 import React from 'react';
 
 /**
- * @function ErrorPage - Error page Component.
- * @return {string} - HTML that displays when user is accessing
- *                    a url that isn't available or contains no resource
+ * error page component
+ * @returns {ReactElement} - the error page
  */
 const ErrorPage = () => (
   <section id="error">
