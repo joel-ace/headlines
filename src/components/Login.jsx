@@ -23,14 +23,11 @@ const Login = () => {
 
   /** assign html of logout button to variable logoutButton */
   const logoutButton = (
-    <button className="btn btn-danger pull-right" onClick={Utils.logout} >Logout</button>
+    <button className="btn btn-danger pull-right" onClick={Utils.logout}>Logout</button>
   );
 
-  /** check authentication state of user and show login or logout button */
-  const loginDisplay = Utils.isLoggedIn() ? logoutButton : loginButton;
-
   return (
-    loginDisplay
+    Utils.isLoggedIn() ? logoutButton : loginButton
   );
 };
 

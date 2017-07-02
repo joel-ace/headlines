@@ -9,8 +9,8 @@ const Protected = () => (
     <i className="fa fa-lock" />
     <h2>Oops!</h2>
     <h4>
-    Seems like you are trying to access protected content. <br />
-    Please login with your Google account to view news headlines
+      Seems like you are trying to access protected content. <br />
+      Please login with your Google account to view news headlines
     </h4>
   </section>
 );

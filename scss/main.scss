@@ -115,7 +115,7 @@ a {
     h2 {
         @extend .h2-heading;
     }
-    div.nrc:nth-child(3n+4) {
+    div.col-3-clear:nth-child(3n+4) {
         clear: both;
     }
     

@@ -1,8 +1,8 @@
 import React from 'react';
 
 /**
- * article loading component
- * @returns {ReactElement} - the loading icon for articles
+ * @description article loading component
+ * @returns {ReactElement} the loading icon for articles
  */
 const ArticleLoading = () => (
   <div className="loading">

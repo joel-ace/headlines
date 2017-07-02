@@ -1,3 +1,5 @@
+import React from 'react';
+
 const apiKey = process.env.NEWS_API_KEY;
 const url = 'https://newsapi.org/v1/';
 
@@ -32,6 +34,22 @@ class Utils {
   }
 
   /**
+   * maps through array to generate single component
+   * @static
+   * @memberof Utils
+   * @param {array} dataArray - array of data
+   * @param {Component} Component - react component
+   * @returns {ReactElement} - a react element
+   */
+  static generateComponents(dataArray, Component) {
+    return (
+      dataArray.map(
+        articles => <Component key={articles.title} {...articles} />,
+      )
+    );
+  }
+
+  /**
    * adds the user token to localStorage and reloads the page
    * @static
    * @memberof Utils
@@ -52,13 +70,12 @@ class Utils {
   static isLoggedIn() {
     if (localStorage.headlinesToken) {
       return fetch(`https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=${localStorage.headlinesToken}`)
-                      .then(res => res)
-                      .then((googleResponse) => {
-                        if (googleResponse.email_verified === 'true') {
-                          return true;
-                        }
-                        return false;
-                      });
+              .then((googleResponse) => {
+                if (googleResponse.email_verified === true) {
+                  return true;
+                }
+                return false;
+              });
     }
     return false;
   }

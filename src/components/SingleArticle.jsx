@@ -30,7 +30,6 @@ const SingleArticle = articles => (
           </a>
         </p>
       </div>
-      <div className="clearfix" />
     </div>
   </div>
 );

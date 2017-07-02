@@ -1,5 +1,7 @@
 /node_modules
 /coverage
+/public/css
+public/js
 npm-debug.log
 .env
 package-lock.json

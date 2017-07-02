@@ -15,7 +15,7 @@ const Routes = () => (
       <Switch>
         <Route exact path="/" component={Sources} />
         <Route
-          exact path="/articles/:source/:sort"
+          exact path="/articles/:source"
           component={Utils.isLoggedIn() ? Articles : Protected}
         />
         <Route component={ErrorPage} />
