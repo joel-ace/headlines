@@ -8,10 +8,10 @@ const url = 'https://newsapi.org/v1/';
  */
 class Utils {
   /**
-   * gets all available sources
+   * @description gets all available sources
    * @static
+   * @returns {Promise} - Returns a promise
    * @memberof Utils
-   * @return {Promise} - Returns a promise
    */
   static getSources() {
     return fetch(`${url}sources?language=en`)
@@ -20,13 +20,12 @@ class Utils {
   }
 
   /**
-   * gets articles for particular source
+   * @description gets articles for particular source
    * @static
+   * @param {string} source news source
+   * @param {string} sortBy article sort option
+   * @returns {Promise} returns a promise
    * @memberof Utils
-   * @param {string} source - Takes in a source parameter
-   * @param {string} sortBy - Takes in a sortBy parameter
-   * @param {string} [key] - optional key parameter
-   * @return {Promise} - Returns a promise
    */
   static getArticle(source, sortBy) {
     return fetch(`${url}articles?language=en&source=${source}&sortBy=${sortBy}&apiKey=${apiKey}`)
@@ -34,27 +33,30 @@ class Utils {
   }
 
   /**
-   * maps through array to generate single component
+   * @description maps through array to generate single component
    * @static
-   * @memberof Utils
+   * @method
    * @param {array} dataArray - array of data
    * @param {Component} Component - react component
+   * @param {key} key - property to use as unique key
    * @returns {ReactElement} - a react element
+   * @memberof Utils
    */
-  static generateComponents(dataArray, Component) {
+  static generateComponents(dataArray, Component, key) {
     return (
       dataArray.map(
-        articles => <Component key={articles.title} {...articles} />,
+        data => <Component key={data[key]} {...data} />,
       )
     );
   }
 
   /**
-   * adds the user token to localStorage and reloads the page
+   * @description adds the user token to localStorage and reloads the page
    * @static
+   * @method
+   * @param {obj} user takes in a user object
+   * @returns {void}
    * @memberof Utils
-   * @param {obj} user - Takes in a user object
-   * @return {void}
    */
   static responseSuccess(user) {
     localStorage.setItem('headlinesToken', user.tokenId);
@@ -62,10 +64,11 @@ class Utils {
   }
 
   /**
-   * Validates the token with Google using a validation url
+   * @description Validates the token with Google using a validation url
    * @static
-   * @memberof Utils
+   * @method
    * @returns {Boolean} - true if verified, false if not
+   * @memberof Utils
    */
   static isLoggedIn() {
     if (localStorage.headlinesToken) {
@@ -81,11 +84,11 @@ class Utils {
   }
 
   /**
-   * Deletes token from localStorage
-   * Redirects to sources page
+   * @description Deletes token from localStorage and redirects to sources page
    * @static
+   * @method
+   * @returns {void}
    * @memberof Utils
-   * @return {void}
    */
   static logout() {
     localStorage.removeItem('headlinesToken');

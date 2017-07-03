@@ -1,7 +1,7 @@
 import React from 'react';
 
 /**
- * SingleSource Component that renders individual sources
+ * @description SingleSource Component
  * @param {object} source a source object
  * @returns {string} a string of HTML divs of sources
  */

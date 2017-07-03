@@ -2,6 +2,7 @@ import React from 'react';
 
 /**
  * @description article loading component
+ * @function
  * @returns {ReactElement} the loading icon for articles
  */
 const ArticleLoading = () => (

@@ -3,9 +3,11 @@ import SingleArticle from './SingleArticle.jsx';
 import Sidebar from './Sidebar.jsx';
 import ArticleLoading from './ArticleLoading.jsx';
 import HigherOrderComponent from './HigherOrderComponent.jsx';
+import Utils from '../utils';
 
 /**
  * @description Article component
+ * @function
  * @param {object} props
  * @returns {ReactElement} a react component
  */
@@ -17,6 +19,7 @@ const Articles = props => (
             onChange={props.sortArticles}
             id="sort-articles"
             className="form-control"
+            value={props.currentSort}
           >
             {
               props.sortBy.map(
@@ -34,12 +37,7 @@ const Articles = props => (
           </div>
           <div className="col-md-9">
             <div className="row same-height-fix">
-              { props.loading
-                ? <ArticleLoading />
-                : props.articles.map(
-                    article => <SingleArticle key={article.title} {...article} />,
-                  )
-              }
+              { props.articleLoading ? <ArticleLoading /> : Utils.generateComponents(props.articles, SingleArticle, 'title') }
             </div>
           </div>
         </div>

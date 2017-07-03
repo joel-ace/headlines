@@ -1,7 +1,7 @@
 import React from 'react';
 
 /**
- * error page component
+ * @description error page component
  * @returns {ReactElement} - the error page
  */
 const ErrorPage = () => (

@@ -3,8 +3,9 @@ import GoogleLogin from 'react-google-login';
 import Utils from '../utils';
 
 /**
- * Login Component Using react-google-login package.
- * @returns {loginDisplay} - A login or logout button
+ * @description Login Component Using react-google-login package.
+ * @function
+ * @returns {loginDisplay} a login or logout button
  */
 const Login = () => {
   const googleClientId = process.env.GOOGLE_CLIENT_ID;

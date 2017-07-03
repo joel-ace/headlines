@@ -1,9 +1,9 @@
 import React from 'react';
 
 /**
- * SingleArticle Component that renders individual articles
- * @param {object} articles - article object
- * @return {ReactElement} - formatted individual articles
+ * @description SingleArticle Component
+ * @param {object} articles article object
+ * @return {ReactElement} formatted individual articles
  */
 const SingleArticle = articles => (
   <div className="col-md-12" >
@@ -29,6 +29,7 @@ const SingleArticle = articles => (
             Read More
           </a>
         </p>
+        <div className="clearfix" />
       </div>
     </div>
   </div>

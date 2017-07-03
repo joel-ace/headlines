@@ -1,10 +1,12 @@
 import React from 'react';
 import SingleSource from './SingleSource.jsx';
-import SourceLoading from './SourceLoading.jsx';
+import ArticleLoading from './ArticleLoading.jsx';
 import HigherOrderComponent from './HigherOrderComponent.jsx';
+import Utils from '../utils';
 
 /**
  * @description Sources component
+ * @function
  * @param {object} props
  * @returns {ReactElement} a react component
  */
@@ -27,13 +29,7 @@ const Sources = props => (
           <div className="col-md-3" />
         </div>
         <div className="row">
-          {
-            props.loading
-            ? <SourceLoading />
-            : props.sources.map(
-                src => <SingleSource key={src.id} {...src} />
-              )
-          }
+          { props.sourceLoading ? <ArticleLoading /> : Utils.generateComponents(props.sources, SingleSource, 'id') }
         </div>
       </div>
     </section>

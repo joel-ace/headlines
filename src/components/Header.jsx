@@ -2,8 +2,9 @@ import React from 'react';
 import Login from './Login.jsx';
 
 /**
- * header component
- * @returns {ReactElement} - the header
+ * @description header component
+ * @function
+ * @returns {ReactElement} the header
  */
 const ErrorPage = () => (
   <header id="header">

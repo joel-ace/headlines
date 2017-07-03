@@ -2,12 +2,14 @@ import { EventEmitter } from 'events';
 import dispatcher from '../dispatcher/dispatcher';
 
 /**
- * @class SourceStore
+ * @description SourceStore
+ * @class
  * @extends {EventEmitter}
  */
 class SourceStore extends EventEmitter {
   /**
-   * Creates an instance of SourceStore.
+   * @description Creates an instance of SourceStore.
+   * @constructor
    * @memberof SourceStore
    */
   constructor() {
@@ -16,8 +18,9 @@ class SourceStore extends EventEmitter {
   }
 
   /**
-   * returns an array of sources
-   * @returns {array} - an array of sources
+   * @description returns an array of sources
+   * @method
+   * @returns {array} an array of sources
    * @memberof SourceStore
    */
   getAll() {
@@ -25,12 +28,11 @@ class SourceStore extends EventEmitter {
   }
 
   /**
-   * Listens to actions from the dispatcher
-   * run actions relevant to Source Store
-   * Emits a change event
+   * @description Listens to actions from the dispatcher and emit change
+   * @method
    * @param {object} action - requested action
+   * @returns {void}
    * @memberof SourceStore
-   * @return {void}
    */
   handleActions(action) {
     if (action.type === 'GET_SOURCES') {

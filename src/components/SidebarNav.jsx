@@ -1,9 +1,9 @@
 import React from 'react';
 
 /**
- * SidebarNav Component
- * @param {object} src - source object
- * @returns {string} - A string of HTML list items of articles
+ * @description SidebarNav Component
+ * @param {object} src source object
+ * @returns {string} HTML list items of sources
  */
 const SidebarNav = src => (
   <li>
@@ -14,3 +14,5 @@ const SidebarNav = src => (
 );
 
 export default SidebarNav;
+
+

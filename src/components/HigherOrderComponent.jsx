@@ -20,7 +20,8 @@ const HigherOrderComponent = Component => class extends React.Component {
     this.state = {
       articles: [],
       sources: [],
-      loading: true,
+      articleLoading: true,
+      sourceLoading: true,
       sortBy: [],
     };
     this.sortArticles = this.sortArticles.bind(this);
@@ -39,30 +40,40 @@ const HigherOrderComponent = Component => class extends React.Component {
    * @memberof Articles
    */
   componentDidMount() {
-    const { match: { params: { source } } } = this.props;
-    ArticleStore.on('change', this.fetchArticles);
+    const { match: { params: { source = '' } = {} } = {} } = this.props;
+
+    if (source) {
+      ArticleStore.on('change', this.fetchArticles);
+      SiteActions.fetchArticles(source, this.getSortOptions()[0] || '');
+    }
+
     SourceStore.on('change', this.fetchSources);
     SiteActions.fetchSources();
-    SiteActions.fetchArticles(source, '');
   }
 
   /**
    * @description sets new state when props change
    * @method
-   * @param {object} props
+   * @param {object} nextProps the next prop
    * @memberof Articles
    * @returns {void}
    */
-  componentWillReceiveProps(props) {
-    const { match: { params: { source } } } = props;
-    SiteActions.fetchArticles(source, '');
-    this.setState({
-      loading: true,
-      sortBy: this.getSortOptions(),
-      articles: ArticleStore.getArticles(),
-      sources: SourceStore.getAll(),
-      sourceTitle: this.getSourceTitle(),
-    });
+  componentWillReceiveProps(nextProps) {
+    const { match: { params: { source } = {} } = {} } = nextProps;
+    const { match: { params: { source: sourceTwo } = {} } = {} } = this.props;
+
+    if (source !== sourceTwo) {
+      SiteActions.fetchArticles(source, this.getSortOptions()[0]);
+      this.setState({
+        articleLoading: true,
+        sourceLoading: true,
+        currentSort: this.getSortOptions()[0],
+        sortBy: this.getSortOptions(),
+        articles: ArticleStore.getArticles(),
+        sources: SourceStore.getAll(),
+        sourceTitle: this.getSourceTitle(),
+      });
+    }
   }
 
   /**
@@ -85,7 +96,7 @@ const HigherOrderComponent = Component => class extends React.Component {
   fetchArticles() {
     this.setState({
       articles: ArticleStore.getArticles() || [],
-      loading: false,
+      articleLoading: false,
       sortBy: this.getSortOptions(),
       sourceTitle: this.getSourceTitle(),
     });
@@ -99,7 +110,7 @@ const HigherOrderComponent = Component => class extends React.Component {
   fetchSources() {
     this.setState({
       sources: SourceStore.getAll() || [],
-      loading: false,
+      sourceLoading: false,
       sortBy: this.getSortOptions(),
       sourceTitle: this.getSourceTitle(),
     });
@@ -113,7 +124,7 @@ const HigherOrderComponent = Component => class extends React.Component {
    */
   getSortOptions() {
     const { sources } = this.state;
-    const { match: { params: { source } } } = this.props;
+    const { match: { params: { source } = {} } = {} } = this.props;
     const filteredSourceObject = sources.filter(
       sourceObject => (
         sourceObject.id === source
@@ -123,7 +134,7 @@ const HigherOrderComponent = Component => class extends React.Component {
   }
 
   /**
-   * Filters available sources based on user input
+   * @description Filters available sources based on user input
    * @param {any} searchString - search query string
    * @memberof Sources
    * @returns {void}
@@ -137,19 +148,19 @@ const HigherOrderComponent = Component => class extends React.Component {
     );
     this.setState({
       sources: searchResults,
-      loading: false,
+      sourceLoading: false,
     });
   }
 
   /**
    * @description gets title of article source
    * @method
-   * @returns {string} - article source title
+   * @returns {string} article source title
    * @memberof Articles
    */
   getSourceTitle() {
     const { sources } = this.state;
-    const { match: { params: { source } } } = this.props;
+    const { match: { params: { source } = {} } = {} } = this.props;
     const filteredSourceObject = sources.filter(
       sourceObject => (
         sourceObject.id === source
@@ -167,12 +178,17 @@ const HigherOrderComponent = Component => class extends React.Component {
    * @returns {void}
    */
   sortArticles(event) {
-    const { match: { params: { source } } } = this.props;
-    SiteActions.fetchArticles(source, event.target.value);
+    const { match: { params: { source } = {} } = {} } = this.props;
+    this.setState({
+      currentSort: event.target.value
+    }, () => {
+      SiteActions.fetchArticles(source, this.state.currentSort);
+    });
   }
 
   /**
    * @description renders component
+   * @method
    * @returns {ReactElement} a react elemnent
    */
   render() {

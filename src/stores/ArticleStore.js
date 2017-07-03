@@ -2,12 +2,14 @@ import { EventEmitter } from 'events';
 import dispatcher from '../dispatcher/dispatcher';
 
 /**
- * @class ArticleStore
+ * @description ArticleStore
+ * @class
  * @extends {EventEmitter}
  */
 class ArticleStore extends EventEmitter {
   /**
-   * Creates an instance of ArticleStore
+   * @description Creates an instance of ArticleStore
+   * @constructor
    * @memberof ArticleStore
    */
   constructor() {
@@ -16,8 +18,9 @@ class ArticleStore extends EventEmitter {
   }
 
   /**
-   * returns an array of articles
-   * @returns {array} - an array of articles
+   * @description returns an array of articles
+   * @method
+   * @returns {array} an array of articles
    * @memberof ArticleStore
    */
   getArticles() {
@@ -25,13 +28,12 @@ class ArticleStore extends EventEmitter {
   }
 
   /**
-   * Listens to actions from the dispatcher
-   * run actions relevant to Article Store
-   * Emits a change event
-   * @param {object} action - requested action
+   * @description Listens to actions from the dispatcher and Emits a change event
+   * @method
+   * @param {object} action requested action
+   * @returns {void}
    * @memberof ArticleStore
-   * @return {void}
-   */
+     */
   handleActions(action) {
     if (action.type === 'GET_ARTICLES') {
       this.articles = action.articles;
