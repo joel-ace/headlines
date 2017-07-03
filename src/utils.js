@@ -10,7 +10,7 @@ class Utils {
   /**
    * @description gets all available sources
    * @static
-   * @returns {Promise} - Returns a promise
+   * @returns {Promise} a promise
    * @memberof Utils
    */
   static getSources() {
@@ -33,7 +33,7 @@ class Utils {
   }
 
   /**
-   * @description maps through array to generate single component
+   * @description maps through array to generate component
    * @static
    * @method
    * @param {array} dataArray - array of data
@@ -54,7 +54,7 @@ class Utils {
    * @description adds the user token to localStorage and reloads the page
    * @static
    * @method
-   * @param {obj} user takes in a user object
+   * @param {object} user takes in a user object
    * @returns {void}
    * @memberof Utils
    */
@@ -67,7 +67,7 @@ class Utils {
    * @description Validates the token with Google using a validation url
    * @static
    * @method
-   * @returns {Boolean} - true if verified, false if not
+   * @returns {Boolean} true if verified, false if not
    * @memberof Utils
    */
   static isLoggedIn() {

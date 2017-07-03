@@ -1,7 +1,8 @@
 import React from 'react';
 
 /**
- * protected component
+ * @description protected component
+ * @method
  * @returns {ReactElement} - the protected content page
  */
 const Protected = () => (
