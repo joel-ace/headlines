@@ -9,8 +9,7 @@ import Utils from '../utils';
  * @param {object} props
  * @returns {ReactElement} a react component
  */
-const SideBar = props => {
-  return(
+const SideBar = props => (
   <div className="side-bar">
     <h2>Sources</h2>
     <p className="notice">Sidebar is Scrollable</p>
@@ -18,6 +17,6 @@ const SideBar = props => {
       { props.sourceLoading ? <SourceLoading /> : Utils.generateComponents(props.sources, SidebarNav, 'id') }
     </ul>
   </div>
-)};
+);
 
 export default HigherOrderComponent(SideBar);

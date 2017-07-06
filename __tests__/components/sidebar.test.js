@@ -16,8 +16,8 @@ jest.mock('../../src/utils', () => ({
 }));
 
 describe('Sidebar Component', () => {
+  const sidebarNavComponent = mount(<SidebarNav {...props} />);
   it('should have a SidebarNav Component', () => {
-    const singleArticleComponent = mount(<SidebarNav {...props} />);
-    expect(singleArticleComponent.length).toBe(1);
+    expect(sidebarNavComponent.length).toBe(1);
   });
 });
