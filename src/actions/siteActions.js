@@ -2,9 +2,9 @@ import dispatcher from '../dispatcher/dispatcher';
 import utils from '../utils';
 
 /**
- * Gets the list of sources from Api
- * @function fetchSources - Dispatches it to the stores
- * @return {void}
+ * @description Gets sources from Api and Dispatches to the source store
+ * @function
+ * @returns {void}
  */
 export function fetchSources() {
   utils.getSources().then((res) => {
@@ -16,10 +16,9 @@ export function fetchSources() {
 }
 
 /**
- * Gets the list of articles from from selected source
- * @function fetchSources - Dispatches it to the stores
+ * @description Gets articles of a selected source and Dispatches it to the artice store
  * @param {string} source Source for article selection
- * @param {string} sortBy SortBy for article
+ * @param {string} sortBy Sort option for article
  * @return {void}
  */
 export function fetchArticles(source, sortBy) {

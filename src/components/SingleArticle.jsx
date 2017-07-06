@@ -1,8 +1,9 @@
 import React from 'react';
 
 /**
- * @function SingleArticle - SingleArticle Component that renders individual articles
- * @return {string} - A string of HTML divs of articles
+ * @description SingleArticle Component
+ * @param {object} articles article object
+ * @return {ReactElement} formatted individual articles
  */
 const SingleArticle = articles => (
   <div className="col-md-12" >
@@ -15,15 +16,21 @@ const SingleArticle = articles => (
         />
       </span>
       <div className="link">
-        <h3><a href={articles.url} rel="noopener noreferrer" target="_blank">{ articles.title }</a></h3>
+        <h3>
+          <a href={articles.url} rel="noopener noreferrer" target="_blank">
+            { articles.title }
+          </a>
+        </h3>
         <p>
           {articles.description}
         </p>
         <p className="pull-right">
-          <a href={articles.url} rel="noopener noreferrer" target="_blank">Read More</a>
+          <a href={articles.url} rel="noopener noreferrer" target="_blank">
+            Read More
+          </a>
         </p>
+        <div className="clearfix" />
       </div>
-      <div className="clearfix" />
     </div>
   </div>
 );

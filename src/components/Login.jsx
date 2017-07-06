@@ -3,14 +3,14 @@ import GoogleLogin from 'react-google-login';
 import Utils from '../utils';
 
 /**
- * @function Login - Login Component Using react-google-login package.
- * @return {loginDisplay} - A login or logout button depending on
- *                          authentication state of user
+ * @description Login Component Using react-google-login package.
+ * @function
+ * @returns {loginDisplay} a login or logout button
  */
 const Login = () => {
   const googleClientId = process.env.GOOGLE_CLIENT_ID;
 
-  // assign html of login button from react-google-login package to variable loginButton
+  /** assign html of login button from react-google-login package to variable loginButton */
   const loginButton = (
     <GoogleLogin
       clientId={googleClientId}
@@ -22,16 +22,13 @@ const Login = () => {
     />
   );
 
-  // assign html of logout button to variable logoutButton
+  /** assign html of logout button to variable logoutButton */
   const logoutButton = (
-    <button className="btn btn-danger pull-right" onClick={Utils.logout} >Logout</button>
+    <button className="btn btn-danger pull-right" onClick={Utils.logout}>Logout</button>
   );
 
-  // check authentication state of user and show login or logout button
-  const loginDisplay = Utils.isLoggedIn() ? logoutButton : loginButton;
-
   return (
-    loginDisplay
+    Utils.isLoggedIn() ? logoutButton : loginButton
   );
 };
 
