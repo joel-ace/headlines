@@ -18,7 +18,7 @@ Getting Started
   - An installation of node.js is required to run the app locally
 - Setting up the project
   - Clone the repo `git clone https://github.com/joel-ace/headlines.git`
-  - Change directory into headlines folder
+  - Run `cd headlines` to change into headlines directory
   - Run `npm install` to install all dependencies
   - Run `npm start` to run the application
 - How to run tests

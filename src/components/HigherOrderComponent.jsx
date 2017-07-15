@@ -60,9 +60,9 @@ const HigherOrderComponent = Component => class extends React.Component {
    */
   componentWillReceiveProps(nextProps) {
     const { match: { params: { source } = {} } = {} } = nextProps;
-    const { match: { params: { source: sourceTwo } = {} } = {} } = this.props;
+    const { match: { params: { source: sourceFromProps } = {} } = {} } = this.props;
 
-    if (source !== sourceTwo) {
+    if (source !== sourceFromProps) {
       SiteActions.fetchArticles(source, this.getSortOptions()[0]);
       this.setState({
         articleLoading: true,
@@ -105,7 +105,7 @@ const HigherOrderComponent = Component => class extends React.Component {
   /**
    * @description Sets state to data retrieved from SourceStore
    * @method
-   * @return {void}
+   * @returns {void}
    */
   fetchSources() {
     this.setState({
@@ -135,7 +135,7 @@ const HigherOrderComponent = Component => class extends React.Component {
 
   /**
    * @description Filters available sources based on user input
-   * @param {any} searchString - search query string
+   * @param {string} searchString - search query string
    * @memberof Sources
    * @returns {void}
    */
