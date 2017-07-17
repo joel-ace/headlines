@@ -51,11 +51,14 @@ Limitations of the project
 Contributing to the project
 ---------------------------
 - Fork this repository to your account
-- Clone your repository - `git clone https://github.com/joel-ace/headlines.git`
+- Clone this repository - `git clone https://github.com/joel-ace/headlines.git`
 - Create a new branch for your feature - `git checkout -b <new-feature>`
 - Commit your changes - `git commit -m "did something"`
 - Push to the remote branch - `git push origin <new-feature>`
 - Open a pull request
+
+Contributions should be written in **[ES6](http://es6-features.org/)** and should entend the **[Airbnb JavaScript Style](https://github.com/airbnb/javascript)** 
+
 
 Author
 --------------
