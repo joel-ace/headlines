@@ -57,7 +57,7 @@ Contributing to the project
 - Push to the remote branch - `git push origin <new-feature>`
 - Open a pull request
 
-Contributions should be written in **[ES6](http://es6-features.org/)** and should entend the **[Airbnb JavaScript Style](https://github.com/airbnb/javascript)** 
+Contributions should be written in **[ES6](http://es6-features.org/)** and should extend the **[Airbnb JavaScript Style](https://github.com/airbnb/javascript)** 
 
 
 Author
